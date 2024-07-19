@@ -15,7 +15,8 @@ import 'package:memscirbe_challenge_app/screen/gridview_reward.dart';
 // import 'package:flutter/widgets.dart';
 
 class TabBars extends StatefulWidget {
-  const TabBars({super.key});
+  final Function(int) onTabChanged;
+  const TabBars({Key? key, required this.onTabChanged}) : super(key: key);
 
   @override
   State<TabBars> createState() => _TabBarsState();
@@ -33,6 +34,12 @@ class _TabBarsState extends State<TabBars> with SingleTickerProviderStateMixin {
       setState(() {
         _currentIndex = _tabController.index;
       });
+      if (_tabController.indexIsChanging) {
+        setState(() {
+          _currentIndex = _tabController.index;
+        });
+        widget.onTabChanged(_tabController.index);
+      }
     });
   }
 
@@ -186,6 +193,7 @@ class _TabBarsState extends State<TabBars> with SingleTickerProviderStateMixin {
                   // Text("Here is the biginning of the second tab"),
 
                   Column(
+                    
                     children: [
                       Stack(
                         children: [
@@ -202,361 +210,364 @@ class _TabBarsState extends State<TabBars> with SingleTickerProviderStateMixin {
                           )
                         ],
                       ),
-                      Container(
-                        height: 400,
-                        width: 380,
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(10),
-                          color: Color(0xFFFFFFFF),
-                          border: Border.all(
-                            color: Color(0xFFE4E4E4),
-                            width: 1,
+                      Expanded(
+                        child: Container(
+                          // height: MediaQuery.of(context).size.height,
+                          // height: 400,
+                          width: 380,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(10),
+                            color: Color(0xFFFFFFFF),
+                            border: Border.all(
+                              color: Color(0xFFE4E4E4),
+                              width: 1,
+                            ),
                           ),
-                        ),
-                        child: SingleChildScrollView(
-                          child: Column(
-                            children: [
-                              Row(
-                                crossAxisAlignment: CrossAxisAlignment.center,
-                                mainAxisAlignment: MainAxisAlignment.start,
-                                children: [
-                                  Padding(
-                                    padding: const EdgeInsets.only(
-                                        left: 15.0, top: 10.0, bottom: 10.0),
-                                    child: Image.asset("images/Ellipse124.png"),
-                                  ),
-                                  Column(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    mainAxisAlignment: MainAxisAlignment.start,
-                                    children: [
-                                      Padding(
-                                        padding:
-                                            const EdgeInsets.only(left: 10.0),
-                                        child: Text(
-                                          "1st",
-                                          style: TextStyle(
-                                              fontSize: 20,
-                                              color: Color(0xFF226CE0),
-                                              fontWeight: FontWeight.bold),
+                          child: SingleChildScrollView(
+                            child: Column(
+                              children: [
+                                Row(
+                                  crossAxisAlignment: CrossAxisAlignment.center,
+                                  mainAxisAlignment: MainAxisAlignment.start,
+                                  children: [
+                                    Padding(
+                                      padding: const EdgeInsets.only(
+                                          left: 15.0, top: 10.0, bottom: 10.0),
+                                      child: Image.asset("images/Ellipse124.png"),
+                                    ),
+                                    Column(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      mainAxisAlignment: MainAxisAlignment.start,
+                                      children: [
+                                        Padding(
+                                          padding:
+                                              const EdgeInsets.only(left: 10.0),
+                                          child: Text(
+                                            "1st",
+                                            style: TextStyle(
+                                                fontSize: 20,
+                                                color: Color(0xFF226CE0),
+                                                fontWeight: FontWeight.bold),
+                                          ),
                                         ),
-                                      ),
-                                      Padding(
-                                        padding:
-                                            const EdgeInsets.only(left: 10.0),
-                                        child: Text(
-                                          "Vincent Mayaki",
-                                          style: TextStyle(
-                                              fontSize: 16,
-                                              color: Color(0xFF102A43),
-                                              fontWeight: FontWeight.bold),
+                                        Padding(
+                                          padding:
+                                              const EdgeInsets.only(left: 10.0),
+                                          child: Text(
+                                            "Vincent Mayaki",
+                                            style: TextStyle(
+                                                fontSize: 16,
+                                                color: Color(0xFF102A43),
+                                                fontWeight: FontWeight.bold),
+                                          ),
                                         ),
-                                      ),
-                                      Padding(
-                                        padding:
-                                            const EdgeInsets.only(left: 10.0),
-                                        child: Text(
-                                          "22 Points",
-                                          style: TextStyle(
-                                              fontSize: 12,
-                                              color: Color(0xFF102A43),
-                                              fontWeight: FontWeight.bold),
+                                        Padding(
+                                          padding:
+                                              const EdgeInsets.only(left: 10.0),
+                                          child: Text(
+                                            "22 Points",
+                                            style: TextStyle(
+                                                fontSize: 12,
+                                                color: Color(0xFF102A43),
+                                                fontWeight: FontWeight.bold),
+                                          ),
                                         ),
-                                      ),
-                                    ],
-                                  ),
-                                  SizedBox(
-                                    width: 110,
-                                  ),
-                                  Padding(
-                                    padding: const EdgeInsets.all(15.0),
-                                    child:
-                                        Image.asset("images/coins-stack.png"),
-                                  ),
-                                ],
-                              ),
-                              Divider(
-                                color: Color(
-                                    0xFFD8D8D8), // Set the color of the line
-                                thickness: 1, // Set the thickness of the line
-                                height: 15, // Set the height of the line
-                                indent: 8, // Set the starting point of the line
-                                endIndent:
-                                    8, // Set the ending point of the line
-                              ),
-                              Row(
-                                crossAxisAlignment: CrossAxisAlignment.center,
-                                mainAxisAlignment: MainAxisAlignment.start,
-                                children: [
-                                  Padding(
-                                    padding: const EdgeInsets.only(
-                                        left: 15.0, top: 10.0, bottom: 10.0),
-                                    child: Image.asset("images/Ellipse124.png"),
-                                  ),
-                                  Column(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    mainAxisAlignment: MainAxisAlignment.start,
-                                    children: [
-                                      Padding(
-                                        padding:
-                                            const EdgeInsets.only(left: 10.0),
-                                        child: Text(
-                                          "2st",
-                                          style: TextStyle(
-                                              fontSize: 20,
-                                              color: Color(0xFF226CE0),
-                                              fontWeight: FontWeight.bold),
+                                      ],
+                                    ),
+                                    SizedBox(
+                                      width: 110,
+                                    ),
+                                    Padding(
+                                      padding: const EdgeInsets.all(15.0),
+                                      child:
+                                          Image.asset("images/coins-stack.png"),
+                                    ),
+                                  ],
+                                ),
+                                Divider(
+                                  color: Color(
+                                      0xFFD8D8D8), // Set the color of the line
+                                  thickness: 1, // Set the thickness of the line
+                                  height: 15, // Set the height of the line
+                                  indent: 8, // Set the starting point of the line
+                                  endIndent:
+                                      8, // Set the ending point of the line
+                                ),
+                                Row(
+                                  crossAxisAlignment: CrossAxisAlignment.center,
+                                  mainAxisAlignment: MainAxisAlignment.start,
+                                  children: [
+                                    Padding(
+                                      padding: const EdgeInsets.only(
+                                          left: 15.0, top: 10.0, bottom: 10.0),
+                                      child: Image.asset("images/Ellipse124.png"),
+                                    ),
+                                    Column(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      mainAxisAlignment: MainAxisAlignment.start,
+                                      children: [
+                                        Padding(
+                                          padding:
+                                              const EdgeInsets.only(left: 10.0),
+                                          child: Text(
+                                            "2st",
+                                            style: TextStyle(
+                                                fontSize: 20,
+                                                color: Color(0xFF226CE0),
+                                                fontWeight: FontWeight.bold),
+                                          ),
                                         ),
-                                      ),
-                                      Padding(
-                                        padding:
-                                            const EdgeInsets.only(left: 10.0),
-                                        child: Text(
-                                          "Vincent Mayaki",
-                                          style: TextStyle(
-                                              fontSize: 16,
-                                              color: Color(0xFF102A43),
-                                              fontWeight: FontWeight.bold),
+                                        Padding(
+                                          padding:
+                                              const EdgeInsets.only(left: 10.0),
+                                          child: Text(
+                                            "Vincent Mayaki",
+                                            style: TextStyle(
+                                                fontSize: 16,
+                                                color: Color(0xFF102A43),
+                                                fontWeight: FontWeight.bold),
+                                          ),
                                         ),
-                                      ),
-                                      Padding(
-                                        padding:
-                                            const EdgeInsets.only(left: 10.0),
-                                        child: Text(
-                                          "22 Points",
-                                          style: TextStyle(
-                                              fontSize: 12,
-                                              color: Color(0xFF102A43),
-                                              fontWeight: FontWeight.bold),
+                                        Padding(
+                                          padding:
+                                              const EdgeInsets.only(left: 10.0),
+                                          child: Text(
+                                            "22 Points",
+                                            style: TextStyle(
+                                                fontSize: 12,
+                                                color: Color(0xFF102A43),
+                                                fontWeight: FontWeight.bold),
+                                          ),
                                         ),
-                                      ),
-                                    ],
-                                  ),
-                                  SizedBox(
-                                    width: 110,
-                                  ),
-                                  Padding(
-                                    padding: const EdgeInsets.all(15.0),
-                                    child:
-                                        Image.asset("images/coins-stack.png"),
-                                  ),
-                                ],
-                              ),
-                              Divider(
-                                color: Color(
-                                    0xFFD8D8D8), // Set the color of the line
-                                thickness: 1, // Set the thickness of the line
-                                height: 15, // Set the height of the line
-                                indent: 8, // Set the starting point of the line
-                                endIndent:
-                                    8, // Set the ending point of the line
-                              ),
-                              Row(
-                                crossAxisAlignment: CrossAxisAlignment.center,
-                                mainAxisAlignment: MainAxisAlignment.start,
-                                children: [
-                                  Padding(
-                                    padding: const EdgeInsets.only(
-                                        left: 15.0, top: 10.0, bottom: 10.0),
-                                    child: Image.asset("images/Ellipse124.png"),
-                                  ),
-                                  Column(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    mainAxisAlignment: MainAxisAlignment.start,
-                                    children: [
-                                      Padding(
-                                        padding:
-                                            const EdgeInsets.only(left: 10.0),
-                                        child: Text(
-                                          "3st",
-                                          style: TextStyle(
-                                              fontSize: 20,
-                                              color: Color(0xFF226CE0),
-                                              fontWeight: FontWeight.bold),
+                                      ],
+                                    ),
+                                    SizedBox(
+                                      width: 110,
+                                    ),
+                                    Padding(
+                                      padding: const EdgeInsets.all(15.0),
+                                      child:
+                                          Image.asset("images/coins-stack.png"),
+                                    ),
+                                  ],
+                                ),
+                                Divider(
+                                  color: Color(
+                                      0xFFD8D8D8), // Set the color of the line
+                                  thickness: 1, // Set the thickness of the line
+                                  height: 15, // Set the height of the line
+                                  indent: 8, // Set the starting point of the line
+                                  endIndent:
+                                      8, // Set the ending point of the line
+                                ),
+                                Row(
+                                  crossAxisAlignment: CrossAxisAlignment.center,
+                                  mainAxisAlignment: MainAxisAlignment.start,
+                                  children: [
+                                    Padding(
+                                      padding: const EdgeInsets.only(
+                                          left: 15.0, top: 10.0, bottom: 10.0),
+                                      child: Image.asset("images/Ellipse124.png"),
+                                    ),
+                                    Column(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      mainAxisAlignment: MainAxisAlignment.start,
+                                      children: [
+                                        Padding(
+                                          padding:
+                                              const EdgeInsets.only(left: 10.0),
+                                          child: Text(
+                                            "3st",
+                                            style: TextStyle(
+                                                fontSize: 20,
+                                                color: Color(0xFF226CE0),
+                                                fontWeight: FontWeight.bold),
+                                          ),
                                         ),
-                                      ),
-                                      Padding(
-                                        padding:
-                                            const EdgeInsets.only(left: 10.0),
-                                        child: Text(
-                                          "Vincent Mayaki",
-                                          style: TextStyle(
-                                              fontSize: 16,
-                                              color: Color(0xFF102A43),
-                                              fontWeight: FontWeight.bold),
+                                        Padding(
+                                          padding:
+                                              const EdgeInsets.only(left: 10.0),
+                                          child: Text(
+                                            "Vincent Mayaki",
+                                            style: TextStyle(
+                                                fontSize: 16,
+                                                color: Color(0xFF102A43),
+                                                fontWeight: FontWeight.bold),
+                                          ),
                                         ),
-                                      ),
-                                      Padding(
-                                        padding:
-                                            const EdgeInsets.only(left: 10.0),
-                                        child: Text(
-                                          "22 Points",
-                                          style: TextStyle(
-                                              fontSize: 12,
-                                              color: Color(0xFF102A43),
-                                              fontWeight: FontWeight.bold),
+                                        Padding(
+                                          padding:
+                                              const EdgeInsets.only(left: 10.0),
+                                          child: Text(
+                                            "22 Points",
+                                            style: TextStyle(
+                                                fontSize: 12,
+                                                color: Color(0xFF102A43),
+                                                fontWeight: FontWeight.bold),
+                                          ),
                                         ),
-                                      ),
-                                    ],
-                                  ),
-                                  SizedBox(
-                                    width: 110,
-                                  ),
-                                  Padding(
-                                    padding: const EdgeInsets.all(15.0),
-                                    child:
-                                        Image.asset("images/coins-stack.png"),
-                                  ),
-                                ],
-                              ),
-                              Divider(
-                                color: Color(
-                                    0xFFD8D8D8), // Set the color of the line
-                                thickness: 1, // Set the thickness of the line
-                                height: 15, // Set the height of the line
-                                indent: 8, // Set the starting point of the line
-                                endIndent:
-                                    8, // Set the ending point of the line
-                              ),
-                              Row(
-                                crossAxisAlignment: CrossAxisAlignment.center,
-                                mainAxisAlignment: MainAxisAlignment.start,
-                                children: [
-                                  Padding(
-                                    padding: const EdgeInsets.only(
-                                        left: 15.0, top: 10.0, bottom: 10.0),
-                                    child: Image.asset("images/Ellipse124.png"),
-                                  ),
-                                  Column(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    mainAxisAlignment: MainAxisAlignment.start,
-                                    children: [
-                                      Padding(
-                                        padding:
-                                            const EdgeInsets.only(left: 10.0),
-                                        child: Text(
-                                          "4th",
-                                          style: TextStyle(
-                                              fontSize: 20,
-                                              color: Color(0xFF226CE0),
-                                              fontWeight: FontWeight.bold),
+                                      ],
+                                    ),
+                                    SizedBox(
+                                      width: 110,
+                                    ),
+                                    Padding(
+                                      padding: const EdgeInsets.all(15.0),
+                                      child:
+                                          Image.asset("images/coins-stack.png"),
+                                    ),
+                                  ],
+                                ),
+                                Divider(
+                                  color: Color(
+                                      0xFFD8D8D8), // Set the color of the line
+                                  thickness: 1, // Set the thickness of the line
+                                  height: 15, // Set the height of the line
+                                  indent: 8, // Set the starting point of the line
+                                  endIndent:
+                                      8, // Set the ending point of the line
+                                ),
+                                Row(
+                                  crossAxisAlignment: CrossAxisAlignment.center,
+                                  mainAxisAlignment: MainAxisAlignment.start,
+                                  children: [
+                                    Padding(
+                                      padding: const EdgeInsets.only(
+                                          left: 15.0, top: 10.0, bottom: 10.0),
+                                      child: Image.asset("images/Ellipse124.png"),
+                                    ),
+                                    Column(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      mainAxisAlignment: MainAxisAlignment.start,
+                                      children: [
+                                        Padding(
+                                          padding:
+                                              const EdgeInsets.only(left: 10.0),
+                                          child: Text(
+                                            "4th",
+                                            style: TextStyle(
+                                                fontSize: 20,
+                                                color: Color(0xFF226CE0),
+                                                fontWeight: FontWeight.bold),
+                                          ),
                                         ),
-                                      ),
-                                      Padding(
-                                        padding:
-                                            const EdgeInsets.only(left: 10.0),
-                                        child: Text(
-                                          "Vincent Mayaki",
-                                          style: TextStyle(
-                                              fontSize: 16,
-                                              color: Color(0xFF102A43),
-                                              fontWeight: FontWeight.bold),
+                                        Padding(
+                                          padding:
+                                              const EdgeInsets.only(left: 10.0),
+                                          child: Text(
+                                            "Vincent Mayaki",
+                                            style: TextStyle(
+                                                fontSize: 16,
+                                                color: Color(0xFF102A43),
+                                                fontWeight: FontWeight.bold),
+                                          ),
                                         ),
-                                      ),
-                                      Padding(
-                                        padding:
-                                            const EdgeInsets.only(left: 10.0),
-                                        child: Text(
-                                          "22 Points",
-                                          style: TextStyle(
-                                              fontSize: 12,
-                                              color: Color(0xFF102A43),
-                                              fontWeight: FontWeight.bold),
+                                        Padding(
+                                          padding:
+                                              const EdgeInsets.only(left: 10.0),
+                                          child: Text(
+                                            "22 Points",
+                                            style: TextStyle(
+                                                fontSize: 12,
+                                                color: Color(0xFF102A43),
+                                                fontWeight: FontWeight.bold),
+                                          ),
                                         ),
-                                      ),
-                                    ],
-                                  ),
-                                  SizedBox(
-                                    width: 110,
-                                  ),
-                                  Padding(
-                                    padding: const EdgeInsets.all(15.0),
-                                    child:
-                                        Image.asset("images/coins-stack.png"),
-                                  ),
-                                ],
-                              ),
-                              Divider(
-                                color: Color(
-                                    0xFFD8D8D8), // Set the color of the line
-                                thickness: 1, // Set the thickness of the line
-                                height: 15, // Set the height of the line
-                                indent: 8, // Set the starting point of the line
-                                endIndent:
-                                    8, // Set the ending point of the line
-                              ),
-                              Row(
-                                crossAxisAlignment: CrossAxisAlignment.center,
-                                mainAxisAlignment: MainAxisAlignment.start,
-                                children: [
-                                  Padding(
-                                    padding: const EdgeInsets.only(
-                                        left: 15.0, top: 10.0, bottom: 10.0),
-                                    child: Image.asset("images/Ellipse124.png"),
-                                  ),
-                                  Column(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    mainAxisAlignment: MainAxisAlignment.start,
-                                    children: [
-                                      Padding(
-                                        padding:
-                                            const EdgeInsets.only(left: 10.0),
-                                        child: Text(
-                                          "5th",
-                                          style: TextStyle(
-                                              fontSize: 20,
-                                              color: Color(0xFF226CE0),
-                                              fontWeight: FontWeight.bold),
+                                      ],
+                                    ),
+                                    SizedBox(
+                                      width: 110,
+                                    ),
+                                    Padding(
+                                      padding: const EdgeInsets.all(15.0),
+                                      child:
+                                          Image.asset("images/coins-stack.png"),
+                                    ),
+                                  ],
+                                ),
+                                Divider(
+                                  color: Color(
+                                      0xFFD8D8D8), // Set the color of the line
+                                  thickness: 1, // Set the thickness of the line
+                                  height: 15, // Set the height of the line
+                                  indent: 8, // Set the starting point of the line
+                                  endIndent:
+                                      8, // Set the ending point of the line
+                                ),
+                                Row(
+                                  crossAxisAlignment: CrossAxisAlignment.center,
+                                  mainAxisAlignment: MainAxisAlignment.start,
+                                  children: [
+                                    Padding(
+                                      padding: const EdgeInsets.only(
+                                          left: 15.0, top: 10.0, bottom: 10.0),
+                                      child: Image.asset("images/Ellipse124.png"),
+                                    ),
+                                    Column(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      mainAxisAlignment: MainAxisAlignment.start,
+                                      children: [
+                                        Padding(
+                                          padding:
+                                              const EdgeInsets.only(left: 10.0),
+                                          child: Text(
+                                            "5th",
+                                            style: TextStyle(
+                                                fontSize: 20,
+                                                color: Color(0xFF226CE0),
+                                                fontWeight: FontWeight.bold),
+                                          ),
                                         ),
-                                      ),
-                                      Padding(
-                                        padding:
-                                            const EdgeInsets.only(left: 10.0),
-                                        child: Text(
-                                          "Vincent Mayaki",
-                                          style: TextStyle(
-                                              fontSize: 16,
-                                              color: Color(0xFF102A43),
-                                              fontWeight: FontWeight.bold),
+                                        Padding(
+                                          padding:
+                                              const EdgeInsets.only(left: 10.0),
+                                          child: Text(
+                                            "Vincent Mayaki",
+                                            style: TextStyle(
+                                                fontSize: 16,
+                                                color: Color(0xFF102A43),
+                                                fontWeight: FontWeight.bold),
+                                          ),
                                         ),
-                                      ),
-                                      Padding(
-                                        padding:
-                                            const EdgeInsets.only(left: 10.0),
-                                        child: Text(
-                                          "22 Points",
-                                          style: TextStyle(
-                                              fontSize: 12,
-                                              color: Color(0xFF102A43),
-                                              fontWeight: FontWeight.bold),
+                                        Padding(
+                                          padding:
+                                              const EdgeInsets.only(left: 10.0),
+                                          child: Text(
+                                            "22 Points",
+                                            style: TextStyle(
+                                                fontSize: 12,
+                                                color: Color(0xFF102A43),
+                                                fontWeight: FontWeight.bold),
+                                          ),
                                         ),
-                                      ),
-                                    ],
-                                  ),
-                                  SizedBox(
-                                    width: 110,
-                                  ),
-                                  Padding(
-                                    padding: const EdgeInsets.all(15.0),
-                                    child:
-                                        Image.asset("images/coins-stack.png"),
-                                  ),
-                                ],
-                              ),
-                              Divider(
-                                color: Color(
-                                    0xFFD8D8D8), // Set the color of the line
-                                thickness: 1, // Set the thickness of the line
-                                height: 15, // Set the height of the line
-                                indent: 8, // Set the starting point of the line
-                                endIndent:
-                                    8, // Set the ending point of the line
-                              ),
-                            ],
+                                      ],
+                                    ),
+                                    SizedBox(
+                                      width: 110,
+                                    ),
+                                    Padding(
+                                      padding: const EdgeInsets.all(15.0),
+                                      child:
+                                          Image.asset("images/coins-stack.png"),
+                                    ),
+                                  ],
+                                ),
+                                Divider(
+                                  color: Color(
+                                      0xFFD8D8D8), // Set the color of the line
+                                  thickness: 1, // Set the thickness of the line
+                                  height: 15, // Set the height of the line
+                                  indent: 8, // Set the starting point of the line
+                                  endIndent:
+                                      8, // Set the ending point of the line
+                                ),
+                              ],
+                            ),
                           ),
                         ),
                       ),
@@ -655,15 +666,6 @@ class _TabBarsState extends State<TabBars> with SingleTickerProviderStateMixin {
         ),
       ),
     ])));
-    // floatingActionButton: FloatingActionButton(
-    //   onPressed: (){},
-    //   child: Icon(
-    //     Icons.add,
-    //     size: 30,
-    //   ),
-    //   backgroundColor: Color(0xFFFF9C2A),
-    //   foregroundColor: Color(0xFFFFFFFF),
-    //   shape: CircleBorder(),
-    // ),
+    
   }
 }

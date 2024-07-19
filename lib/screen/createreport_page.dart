@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:memscirbe_challenge_app/screen/list_add_option.dart';
+// import 'package:memscirbe_challenge_app/screen/list_view_two.dart';
 // import 'package:flutter/widgets.dart';
-import 'package:memscirbe_challenge_app/screen/listview_reporttemplate.dart';
+// import 'package:memscirbe_challenge_app/screen/listview_reporttemplate.dart';
+// import 'package:memscirbe_challenge_app/screen/testing_listview.dart';
 // import 'package:flutter_svg/svg.dart';
 // import 'package:memscirbe_challenge_app/screen/dropdown_list.dart';
 // import 'package:memscirbe_challenge_app/screen/switch_button.dart';
@@ -38,9 +41,7 @@ class _CreateReportState extends State<CreateReport> {
               fontSize: 20,
               fontWeight: FontWeight.bold),
         ),
-
         centerTitle: false,
-
         leading: GestureDetector(
             onTap: () {
               backtocreatenewchallenge();
@@ -52,7 +53,7 @@ class _CreateReportState extends State<CreateReport> {
             child: ElevatedButton(
               onPressed: onCreatereport,
               style: ButtonStyle(
-                backgroundColor: MaterialStatePropertyAll(
+                backgroundColor: WidgetStatePropertyAll(
                   Color(0xFF0D2755),
                 ),
               ),
@@ -67,30 +68,23 @@ class _CreateReportState extends State<CreateReport> {
           ),
         ],
       ),
-
       body: Stack(
-        children: [Container(
-          height: MediaQuery.of(context).size.height,
-          decoration: BoxDecoration(
-            color: Color(0xFFF5F6F7),
+        children: [
+          Container(
+            height: MediaQuery.of(context).size.height,
+            decoration: BoxDecoration(
+              color: Color(0xFFF5F6F7),
+            ),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                Expanded(child: ListViewPageTwo()),
+              ],
+            ),
           ),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            mainAxisAlignment: MainAxisAlignment.start,
-            children: [
-                
-                
-              Expanded(child: ListViewPage()),
-                
-                
-                
-                
-            ],
-          ),
-        ),
         ],
       ),
-
     );
   }
 }

@@ -38,7 +38,7 @@ class _JoinChallengeState extends State<JoinChallenge> {
             child: ElevatedButton(
               onPressed: onJoinchallenge,
               style: ButtonStyle(
-                backgroundColor: MaterialStatePropertyAll(
+                backgroundColor: WidgetStatePropertyAll(
                   Color(0xFF0D2755),
                 ),
               ),
@@ -82,7 +82,7 @@ class _JoinChallengeState extends State<JoinChallenge> {
                   const EdgeInsets.only(left: 12.0, right: 12.0, bottom: 10.0),
               child: Container(
                 height: 150,
-                width: 400,
+                width: MediaQuery.of(context).size.width,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(10),
                   color: Color(0xFFEBF2FF),
@@ -154,7 +154,7 @@ class _JoinChallengeState extends State<JoinChallenge> {
                           left: 10.0, right: 10.0, bottom: 10.0, top: 10.0),
                       child: Container(
                         height: 60,
-                        width: 400,
+                        width: MediaQuery.of(context).size.width,
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(10),
                           color: Color(0xFFFFECBB),
@@ -198,8 +198,8 @@ class _JoinChallengeState extends State<JoinChallenge> {
             Padding(
               padding: const EdgeInsets.only(left: 12.0, right: 12.0),
               child: Container(
-                height: 400,
-                width: 400,
+                // height: MediaQuery.of(context).size.height * 0.4,
+                width: MediaQuery.of(context).size.width,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(10),
                   color: Color(0xFFFFFFFF),

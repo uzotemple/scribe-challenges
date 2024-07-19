@@ -42,28 +42,42 @@ class _TimePickerContainerState extends State<TimePickerContainer> {
       },
       child: Container(
         // width: 370,
-        height: 60,
-        padding: EdgeInsets.all(20.0),
-        color: Color(0xFFFFFFFF),
-        child: Row(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Icon(
-              Icons.access_time,
-              color: Color(0xFF828282),
-            ),
-            SizedBox(
-              width: 5,
-            ),
-            Text(
-              selecttime.isNotEmpty?selecttime: '${_selectedTime.format(context)}',
-              style: TextStyle(
-                fontSize: 16.0,
+        height: 45,
+        decoration: BoxDecoration(
+          color: Color(0xFFFFFFFF),
+          border: Border.all(
+            color: Color(0xFFDBDBDB),
+            width: 1,
+          ),
+          borderRadius: BorderRadius.only(
+            topRight: Radius.circular(10.0),
+            bottomRight: Radius.circular(10.0),
+          ),
+        ),
+        // padding: EdgeInsets.all(20.0),
+        // color: Color(0xFFFFFFFF),
+        child: Padding(
+          padding: const EdgeInsets.all(10.0),
+          child: Row(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Icon(
+                Icons.access_time,
                 color: Color(0xFF828282),
               ),
-            ),
-          ],
+              SizedBox(
+                width: 5,
+              ),
+              Text(
+                selecttime.isNotEmpty?selecttime: '${_selectedTime.format(context)}',
+                style: TextStyle(
+                  fontSize: 16.0,
+                  color: Color(0xFF828282),
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );

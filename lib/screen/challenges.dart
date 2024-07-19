@@ -12,6 +12,7 @@ class Challenges extends StatefulWidget {
 }
 
 class _ChallengesState extends State<Challenges> {
+  // late TabController tabController;
 
   int _currentIndex = 0;
 
@@ -41,6 +42,7 @@ class _ChallengesState extends State<Challenges> {
   void onTabChanged(int index) {
     setState(() {
       _currentIndex = index;
+      print("Tab changed to: $_currentIndex");
     });
   }
 
@@ -65,7 +67,7 @@ class _ChallengesState extends State<Challenges> {
         ],
       ),
 
-      body: TabBars(),
+      body: TabBars(onTabChanged: onTabChanged),
       
       floatingActionButton: _currentIndex == 1 ? null : FloatingActionButton(
         onPressed: onFloatingActionButton,

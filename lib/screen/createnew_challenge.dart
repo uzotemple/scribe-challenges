@@ -58,7 +58,7 @@ class _CreateNewChallengeState extends State<CreateNewChallenge> {
             child: ElevatedButton(
               onPressed: onCreatenewchallenge,
               style: ButtonStyle(
-                backgroundColor: MaterialStatePropertyAll(
+                backgroundColor: WidgetStatePropertyAll(
                   Color(0xFF0D2755),
                 ),
               ),
@@ -75,7 +75,7 @@ class _CreateNewChallengeState extends State<CreateNewChallenge> {
       ),
       body: SingleChildScrollView(
         child: Container(
-          height: MediaQuery.of(context).size.height,
+          // height: MediaQuery.of(context).size.height,
           decoration: BoxDecoration(
             color: Color(0xFFF5F6F7),
           ),
@@ -266,42 +266,45 @@ class _CreateNewChallengeState extends State<CreateNewChallenge> {
 
               // Second Dropdowm ... No of cycle
 
-              Row(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.all(15.0),
-                    child: Text(
-                      "No of Cycle",
-                      style: TextStyle(
-                          fontSize: 16,
-                          color: Color(0xFF627D98),
-                          fontWeight: FontWeight.bold),
+              Padding(
+                padding: const EdgeInsets.only(bottom: 100.0),
+                child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.all(15.0),
+                      child: Text(
+                        "No of Cycle",
+                        style: TextStyle(
+                            fontSize: 16,
+                            color: Color(0xFF627D98),
+                            fontWeight: FontWeight.bold),
+                      ),
                     ),
-                  ),
-                  Padding(
-                    padding:
-                        const EdgeInsets.only(top: 12.0, left: 10, right: 15.0),
-                    // First Container
-                    child: Container(
-                      height: 40,
-                      width: 170,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(10),
-                        color: Color(0xFFFFFFFF),
-                        border: Border.all(
-                          color: Color(0xFFE4E4E4),
-                          width: 1,
+                    Padding(
+                      padding:
+                          const EdgeInsets.only(top: 12.0, left: 10, right: 15.0),
+                      // First Container
+                      child: Container(
+                        height: 40,
+                        width: 170,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(10),
+                          color: Color(0xFFFFFFFF),
+                          border: Border.all(
+                            color: Color(0xFFE4E4E4),
+                            width: 1,
+                          ),
+                        ),
+                        child: Padding(
+                          padding: const EdgeInsets.only(left: 30.0),
+                          child: Expanded(child: DropDownForNoOfCycle()),
                         ),
                       ),
-                      child: Padding(
-                        padding: const EdgeInsets.only(left: 30.0),
-                        child: DropDownForNoOfCycle(),
-                      ),
                     ),
-                  ),
-                ],
+                  ],
+                ),
               ),
             ],
           ),

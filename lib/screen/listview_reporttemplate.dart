@@ -4,7 +4,7 @@
 import 'package:flutter/material.dart';
 // import 'package:flutter_svg/svg.dart';
 import 'package:memscirbe_challenge_app/screen/dropdown_list.dart';
-import 'package:memscirbe_challenge_app/screen/image_picker_avatar.dart';
+// import 'package:memscirbe_challenge_app/screen/image_picker_avatar.dart';
 // import 'package:memscirbe_challenge_app/screen/image_picker_avatar.dart';
 // import 'package:memscirbe_challenge_app/screen/image_picker_avatar.dart';
 import 'package:memscirbe_challenge_app/screen/switch_button.dart';
@@ -18,6 +18,8 @@ class _ListViewPageState extends State<ListViewPage> {
 
   String _selectedResponseType ="Open text";
   List<Widget> items = [];
+
+  // int _clickCounter = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -191,7 +193,7 @@ class _ListViewPageState extends State<ListViewPage> {
                                         _selectedResponseType = newValue;
                                         print(_selectedResponseType);
                                       });
-                                    },
+                                    }, initialValue: '',
                                   ),
                                 ),
                               ),
@@ -199,79 +201,81 @@ class _ListViewPageState extends State<ListViewPage> {
                           ],
                         ),
                 
-                        SizedBox(height: 20,),
+                        // SizedBox(height: 20,),
                 
-                        if (_selectedResponseType == "Open text")
+                        // if (_selectedResponseType == "Open text")
                 
                         // image conatainer
                 
-                        Padding(
-                          padding: const EdgeInsets.all(12.0),
-                          child: Container(
-                            height: 160,
-                            width: 380,
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(10),
-                              color: Color(0xFFFFFFFF),
-                              border: Border.all(
-                                color: Color(0xFFE4E4E4),
-                                width: 1,
-                              ),
-                            ),
-                            child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.center,
-                                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                                children: [
-                                  Flexible(
-                                    child: Row(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.spaceBetween,
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.center,
-                                      children: [
-                                        Padding(
-                                          padding: const EdgeInsets.all(10),
-                                          child: Text(
-                                            "Upload an image as an evidence",
-                                            style: TextStyle(
-                                                fontSize: 16,
-                                                color: Color(0xFF0D2755)),
-                                          ),
-                                        ),
-                                        Padding(
-                                          padding: const EdgeInsets.all(10.0),
-                                          child: Icon(Icons.more_vert),
-                                        )
-                                      ],
-                                    ),
-                                  ),
-                                  Row(
-                                    crossAxisAlignment: CrossAxisAlignment.center,
-                                    mainAxisAlignment: MainAxisAlignment.start,
-                                    children: [
-                                      Padding(
-                                        padding: const EdgeInsets.all(10.0),
-                                        child: ImageUploadAvatar(),
-                                      ),
-                                      Padding(
-                                        padding: const EdgeInsets.all(10.0),
-                                        child: Text(
-                                          "Add image (optional)",
-                                          style: TextStyle(
-                                              fontSize: 16,
-                                              color: Color(0xFF757575)),
-                                        ),
-                                      )
-                                    ],
-                                  )
-                                ]),
-                          ),
-                        ),
+                        // Padding(
+                        //   padding: const EdgeInsets.all(12.0),
+                        //   child: Container(
+                        //     height: 160,
+                        //     width: 380,
+                        //     decoration: BoxDecoration(
+                        //       borderRadius: BorderRadius.circular(10),
+                        //       color: Color(0xFFFFFFFF),
+                        //       border: Border.all(
+                        //         color: Color(0xFFE4E4E4),
+                        //         width: 1,
+                        //       ),
+                        //     ),
+                        //     child: Column(
+                        //         crossAxisAlignment: CrossAxisAlignment.center,
+                        //         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        //         children: [
+                        //           Flexible(
+                        //             child: Row(
+                        //               mainAxisAlignment:
+                        //                   MainAxisAlignment.spaceBetween,
+                        //               crossAxisAlignment:
+                        //                   CrossAxisAlignment.center,
+                        //               children: [
+                        //                 Padding(
+                        //                   padding: const EdgeInsets.all(10),
+                        //                   child: Text(
+                        //                     "Upload an image as an evidence",
+                        //                     style: TextStyle(
+                        //                         fontSize: 16,
+                        //                         color: Color(0xFF0D2755)),
+                        //                   ),
+                        //                 ),
+                        //                 Padding(
+                        //                   padding: const EdgeInsets.all(10.0),
+                        //                   child: Icon(Icons.more_vert),
+                        //                 )
+                        //               ],
+                        //             ),
+                        //           ),
+                        //           Row(
+                        //             crossAxisAlignment: CrossAxisAlignment.center,
+                        //             mainAxisAlignment: MainAxisAlignment.start,
+                        //             children: [
+                        //               Padding(
+                        //                 padding: const EdgeInsets.all(10.0),
+                        //                 child: ImageUploadAvatar(),
+                        //               ),
+                        //               Padding(
+                        //                 padding: const EdgeInsets.all(10.0),
+                        //                 child: Text(
+                        //                   "Add image (optional)",
+                        //                   style: TextStyle(
+                        //                       fontSize: 16,
+                        //                       color: Color(0xFF757575)),
+                        //                 ),
+                        //               ),
+                        //             ],
+                        //           )
+                        //         ]),
+                        //   ),
+                        // ),
+  
                       ],
                     ),
                   ),
                 ),
               ),
+
             );
           });
         },

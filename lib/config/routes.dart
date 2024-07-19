@@ -22,6 +22,7 @@ const onAppleLaptopPage = "/onapplelaptop";
 const onPinpostActionPage = "/onpinpostaction";
 
 
+
 final routes = <String, Widget Function(BuildContext)> {
   onChallengePage: (_) => Challenges(),
   onCreateNewChallengePage: (_) => CreateNewChallenge(),

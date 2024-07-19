@@ -60,7 +60,7 @@ class _CreatedChallengeState extends State<CreatedChallenge> {
             child: ElevatedButton(
               onPressed: onCreatedchallenge,
               style: ButtonStyle(
-                backgroundColor: MaterialStatePropertyAll(
+                backgroundColor: WidgetStatePropertyAll(
                   Color(0xFF0D2755),
                 ),
               ),
